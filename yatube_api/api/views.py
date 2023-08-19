@@ -1,9 +1,9 @@
-from posts.models import Comment, Follow, Group, Post, User
-from rest_framework import filters, permissions, viewsets
+from rest_framework import filters, viewsets
 from rest_framework.pagination import LimitOffsetPagination
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 from .permission import IsAuthorOrReadOnlyPermission
+from posts.models import Comment, Follow, Group, Post
 from .serializers import (CommentSerializer, FollowSerializer, GroupSerializer,
                           PostSerializer)
 
