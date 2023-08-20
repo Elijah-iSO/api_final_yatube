@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Comment, Group, Post
+from .models import Comment, Follow, Group, Post
 
 
 class CommentInline(admin.StackedInline):
@@ -29,7 +29,14 @@ class CommentAdmin(admin.ModelAdmin):
     list_filter = ('created',)
 
 
+class FollowAdmin(admin.ModelAdmin):
+    list_display = ('pk', 'user', 'following')
+    search_fields = ('following',)
+    list_filter = ('user',)
+
+
 admin.site.empty_value_display = '-пусто-'
 admin.site.register(Post, PostAdmin)
 admin.site.register(Group)
 admin.site.register(Comment)
+admin.site.register(Follow)
